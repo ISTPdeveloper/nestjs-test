@@ -1,19 +1,19 @@
-version: 0.0
-os: linux
+# version: 0.0
+# os: linux
 
-files:
-  - source: /
-    destination: /home/ubuntu/myeonjeobi
-permissions:
-  - object: /home/ubuntu/
-    pattern: '**'
-    owner: root
-    group: root
-    mode: 755
-hooks:
-  BeforeInstall:
-    - location: scripts/before_deploy.sh
-      runas: ubuntu
-  AfterInstall:
-    - location: scripts/after_deploy.sh
-      runas: ubuntu
+# files:
+#   - source: /
+#     destination: /home/ubuntu/myeonjeobi
+# permissions:
+#   - object: /home/ubuntu/
+#     pattern: '**'
+#     owner: root
+#     group: root
+#     mode: 755
+# hooks:
+#   BeforeInstall:
+#     - location: scripts/before_deploy.sh
+#       runas: ubuntu
+#   AfterInstall:
+#     - location: scripts/after_deploy.sh
+#       runas: ubuntu
