@@ -21,7 +21,7 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: zip create
+      - name: tar create
         run: tar -cpvzf ./GITHUB_SHA.tgz *
         shell: bash
 
@@ -36,7 +36,7 @@ jobs:
         run: |
           aws s3 cp \
             --region ap-northeast-2 \
-            ./GITHUB_SHA.tgz s3://myeonjeobi-bucket/PROJECT_MEONJEOBI/GITHUB_SHA.tg
+            ./GITHUB_SHA.tgz s3://myeonjeobi-bucket/PROJECT_MEONJEOBI/GITHUB_SHA.tgz
 
       - name: Deploy
         run: aws deploy create-deployment
