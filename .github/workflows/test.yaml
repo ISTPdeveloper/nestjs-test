@@ -21,11 +21,11 @@ jobs:
       - name: Build
         run: yarn build
 
-        # - name: Create env file
-        # run: |
-        #   touch .env
-        #   cat << EOF >> .env
-        #   ${{ secrets.ENV }}
+        - name: Create env file
+        run: |
+          touch .env
+          cat << EOF >> .env
+          ${{ secrets.ENV }}
 
       - name: zip create
         run: tar -cpvzf ./GITHUB_SHA.tgz *
