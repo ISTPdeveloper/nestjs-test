@@ -42,7 +42,7 @@ jobs:
         run: |
           aws s3 cp \
             --region ap-northeast-2 \
-            ./$GITHUB_SHA.tgz s3://myeonjeobi-bucket/PROJECT_NAME/GITHUB_SHA.tg
+            ./GITHUB_SHA.tgz s3://myeonjeobi-bucket/PROJECT_NAME/GITHUB_SHA.tg
 
       - name: Deploy
         run: aws deploy create-deployment
