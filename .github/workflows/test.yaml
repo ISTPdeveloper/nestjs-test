@@ -41,6 +41,7 @@ jobs:
       - name: Deploy
         run: aws deploy create-deployment
           --application-name myeonjeobi-codedeploy
+          --file-exists-behavior OVERWRITE
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name deploy-group
           --s3-location bucket=myeonjeobi-bucket,bundleType=tgz,key=PROJECT_MYEONJEOBI/GITHUB_SHA.tgz
