@@ -22,7 +22,7 @@ jobs:
         run: yarn build
 
       - name: zip create
-        run: tar -cpvzf ./$GITHUB_SHA.tgz *
+        run: tar -cpvzf ./GITHUB_SHA.tgz *
         shell: bash
 
       - name: Configure AWS credentials
@@ -36,7 +36,7 @@ jobs:
         run: |
           aws s3 cp \
             --region ap-northeast-2 \
-            ./$GITHUB_SHA.tgz s3://myeonjeobi-bucket/PROJECT_MYEONJEOBI/$GITHUB_SHA.tg
+            ./GITHUB_SHA.tgz s3://myeonjeobi-bucket/PROJECT_MEONJEOBI/GITHUB_SHA.tg
 
       - name: Deploy
         run: aws deploy create-deployment
@@ -44,4 +44,4 @@ jobs:
           --file-exists-behavior OVERWRITE
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name deploy-group
-          --s3-location bucket=myeonjeobi-bucket,bundleType=tgz,key=PROJECT_MYEONJEOBI/$GITHUB_SHA.tgz
+          --s3-location bucket=myeonjeobi-bucket,bundleType=tgz,key=key=PROJECT_NAME/GITHUB_SHA.tgz
