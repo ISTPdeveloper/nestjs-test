@@ -21,6 +21,12 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Make Directory for deliver
+        run: mkdir deploy
+
+      - name: Copy appspec
+        run: cp appspec.yml ./deploy/
+
       - name: tar create
         run: tar -cpvzf ./GITHUB_SHA.tgz *
         shell: bash
