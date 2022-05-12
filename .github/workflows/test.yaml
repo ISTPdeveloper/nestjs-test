@@ -19,7 +19,7 @@ jobs:
         run: yarn install
 
       - name: Build
-        run: yarn build
+        run: yarn run build
 
       - name: tar create
         run: tar -cpvzf ./GITHUB_SHA.tgz *
@@ -43,9 +43,10 @@ jobs:
             ./GITHUB_SHA.tgz s3://myeonjeobi-bucket/PROJECT_MYEONJEOBI/GITHUB_SHA.tgz
 
       - name: Deploy
-        run: aws deploy create-deployment
-          --application-name myeonjeobi-codedeploy
-          --file-exists-behavior OVERWRITE
-          --deployment-config-name CodeDeployDefault.OneAtAOnce
-          --deployment-group-name deploy-group
-          --s3-location bucket=myeonjeobi-bucket,bundleType=tgz,key=PROJECT_MYEONJEOBI/GITHUB_SHA.tgz
+        run: aws deploy create-deployment \
+          --application-name myeonjeobi-codedeploy \
+          --deployment-group-name deploy-group \
+          --file-exists-behavior OVERWRITE \
+          # --deployment-config-name CodeDeployDefault.OneAtAOnce
+          --s3-location bucket=myeonjeobi-bucket,bundleType=tgz,key=PROJECT_MYEONJEOBI/GITHUB_SHA.tgz \
+          --region ap-northeast-2
