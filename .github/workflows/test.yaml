@@ -47,6 +47,6 @@ jobs:
           --application-name myeonjeobi-codedeploy
           --deployment-group-name deploy-group
           --file-exists-behavior OVERWRITE
-          # --deployment-config-name CodeDeployDefault.OneAtAOnce
+          --deployment-config-name CodeDeployDefault.OneAtOnce
           --s3-location bucket=myeonjeobi-bucket,bundleType=tgz,key=PROJECT_MYEONJEOBI/GITHUB_SHA.tgz
           --region ap-northeast-2
